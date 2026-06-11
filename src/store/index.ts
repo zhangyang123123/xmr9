@@ -266,7 +266,7 @@ export const useAppStore = () => {
   }): Recipe | null => {
     let pool = state.recipes;
     if (filter?.dishType) pool = pool.filter((r) => r.dishType === filter.dishType);
-    if (filter?.mealType) pool = pool.filter((r) => r.mealTypes.includes(filter.mealType));
+    if (filter?.mealType) pool = pool.filter((r) => r.mealTypes.includes(filter.mealType as MealType));
     if (filter?.excludeId) pool = pool.filter((r) => r.id !== filter.excludeId);
     if (pool.length === 0) return null;
     return pool[Math.floor(Math.random() * pool.length)];

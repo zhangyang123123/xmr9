@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { ChefHat, Calendar, BookOpen, ShoppingCart, X } from 'lucide-vue-next';
-import { cn } from '@/utils/helpers';
+import { Coffee, Calendar, BookOpen, ShoppingCart, X } from 'lucide-vue-next';
 
 const route = useRoute();
 const router = useRouter();
@@ -48,7 +47,7 @@ const navigate = (path: string) => {
             class="flex items-center gap-2.5 cursor-pointer group"
           >
             <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-warm-500 to-warm-600 shadow-warm flex items-center justify-center group-hover:scale-105 transition-transform">
-              <ChefHat class="w-5 h-5 text-white" />
+              <Coffee class="w-5 h-5 text-white" />
             </div>
             <div class="hidden sm:block">
               <div class="font-display text-xl text-clay-800 leading-none">回家吃饭</div>

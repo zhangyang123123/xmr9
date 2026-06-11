@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { RefreshCw, ShoppingBag, CheckCircle2, CheckCircle, Circle, Copy, Image, Users, Minus, Plus } from 'lucide-vue-next';
+import { ShoppingBag, CheckCircle2, CheckCircle, Circle, Copy, Image, Users, Minus, Plus } from 'lucide-vue-next';
 import { useAppStore } from '@/store';
 import { DAYS_ORDER, MEALS_ORDER, DAY_LABELS, MEAL_LABELS } from '@/types';
 import { formatQty } from '@/utils/helpers';
 
 const groceryStore = useAppStore();
-const { computeGroceryList, toggleGroceryChecked, clearAllGroceryChecked, getServingPeople, setServingPeople } = groceryStore;
+const { computeGroceryList, toggleGroceryChecked, getServingPeople, setServingPeople } = groceryStore;
 const checkedGrocery = computed(() => groceryStore.state.checkedGrocery);
 const schedule = computed(() => groceryStore.state.schedule);
 
@@ -64,11 +64,6 @@ const mealPlanSummary = computed(() => {
 });
 
 const showSummary = ref(false);
-
-const confirmReset = () => {
-  if (checkedCount.value === 0) return;
-  if (confirm('确定重置所有勾选状态吗？')) clearAllGroceryChecked();
-};
 
 const toggleAll = () => {
   const allChecked = checkedCount.value === items.value.length && items.value.length > 0;

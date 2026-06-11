@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';
 import { X, Plus, Minus } from 'lucide-vue-next';
-import type { Recipe, MealType, DishType, Ingredient } from '@/types';
+import type { Recipe, MealType, DishType, Ingredient, RecipeTags } from '@/types';
 import { MEAL_LABELS, DISH_LABELS, DISH_COLORS } from '@/types';
-import { cn } from '@/utils/helpers';
 
 interface Props {
   visible: boolean;
@@ -82,6 +81,11 @@ const toggleMeal = (m: MealType) => {
 
 const submit = () => {
   if (!isValid.value) return;
+  const defaultTags: RecipeTags = {
+    spicyLevel: 'non-spicy',
+    tasteStyle: 'light',
+    allergen: 'none',
+  };
   emit('save', {
     name: name.value.trim(),
     emoji: emoji.value,
@@ -93,6 +97,7 @@ const submit = () => {
       unit: i.unit.trim() || '克',
     })),
     steps: steps.value.trim(),
+    tags: props.editRecipe?.tags || defaultTags,
   });
   emit('close');
 };

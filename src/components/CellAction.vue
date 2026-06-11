@@ -1,24 +1,20 @@
 <script setup lang="ts">
 import { X } from 'lucide-vue-next';
 import type { DayOfWeek, MealType, ScheduleRecipe } from '@/types';
-import { DISH_COLORS, DAY_LABELS, MEAL_EMOJIS, MEAL_LABELS } from '@/types';
-import { cn, formatQty } from '@/utils/helpers';
+import { DAY_LABELS, MEAL_EMOJIS, MEAL_LABELS } from '@/types';
+import { formatQty } from '@/utils/helpers';
 
-interface Props {
+defineProps<{
   visible: boolean;
   day: DayOfWeek;
   meal: MealType;
   recipe: ScheduleRecipe | null;
-}
-
-const props = defineProps<Props>();
+}>();
 const emit = defineEmits<{
   (e: 'close'): void;
   (e: 'remove'): void;
   (e: 'change'): void;
 }>();
-
-const colors = props.recipe ? DISH_COLORS[props.recipe.dishType] : null;
 </script>
 
 <template>

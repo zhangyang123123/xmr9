@@ -1,5 +1,5 @@
 <script setup lang="ts">import { ref, computed } from 'vue';
-import { Plus, Search, Sparkles, Filter } from 'lucide-vue-next';
+import { Plus, Search, Star, Filter } from 'lucide-vue-next';
 import type { Recipe, DishType, MealType } from '@/types';
 import { DISH_LABELS, DISH_COLORS, MEAL_LABELS } from '@/types';
 import { useAppStore } from '@/store';
@@ -7,7 +7,6 @@ import RecipeCard from '@/components/RecipeCard.vue';
 import RecipeForm from '@/components/RecipeForm.vue';
 import RecipeDetail from '@/components/RecipeDetail.vue';
 import RecipePicker from '@/components/RecipePicker.vue';
-import { cn } from '@/utils/helpers';
 const recipesStore = useAppStore();
 const recipes = computed(() => recipesStore.state.recipes);
 const { addRecipe, deleteRecipe, setSchedule, getRandomRecipe } = recipesStore;
@@ -117,7 +116,7 @@ const confirmDelete = (id: string) => {
         <div class="relative z-10">
           <div class="flex items-center justify-between mb-3">
             <h3 class="font-display text-xl flex items-center gap-2">
-              <Sparkles class="w-5 h-5" />
+              <Star class="w-5 h-5" />
               <span>今天吃什么？</span>
             </h3>
             <button

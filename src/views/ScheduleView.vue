@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { Trash2, RefreshCw, ShoppingCart, Plus, AlertTriangle, CheckCircle } from 'lucide-vue-next';
+import { Trash2, RefreshCw, Plus, AlertTriangle, CheckCircle } from 'lucide-vue-next';
 import type { Recipe, DayOfWeek, MealType, ScheduleRecipe } from '@/types';
 import { DAYS_ORDER, DAY_LABELS, MEALS_ORDER, MEAL_LABELS, MEAL_EMOJIS, DISH_COLORS } from '@/types';
 import { useAppStore } from '@/store';

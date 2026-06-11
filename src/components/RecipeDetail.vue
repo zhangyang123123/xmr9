@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import { X } from 'lucide-vue-next';
-import type { Recipe } from '@/types';
-import { DISH_LABELS, DISH_COLORS, MEAL_LABELS, type MealType } from '@/types';
-import { formatQty, cn } from '@/utils/helpers';
+import type { Recipe, MealType } from '@/types';
+import { DISH_LABELS, DISH_COLORS, MEAL_LABELS } from '@/types';
+import { formatQty } from '@/utils/helpers';
 
-interface Props {
+defineProps<{
   visible: boolean;
   recipe: Recipe | null;
-}
-
-const props = defineProps<Props>();
+}>();
 const emit = defineEmits<{
   (e: 'close'): void;
   (e: 'schedule', recipe: Recipe): void;

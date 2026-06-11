@@ -1,16 +1,13 @@
 <script setup lang="ts">
 import { Trash2, Plus, Info } from 'lucide-vue-next';
-import type { Recipe, DayOfWeek, MealType } from '@/types';
+import type { Recipe, MealType } from '@/types';
 import { DISH_COLORS, DISH_LABELS, MEAL_LABELS } from '@/types';
-import { cn } from '@/utils/helpers';
 
-interface Props {
+const props = withDefaults(defineProps<{
   recipe: Recipe;
   showActions?: boolean;
   compact?: boolean;
-}
-
-const props = withDefaults(defineProps<Props>(), {
+}>(), {
   showActions: true,
   compact: false,
 });
